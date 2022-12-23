@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import Logo from '@/assets/Logo.png';
 import Link from './Link';
+import useMediaQuery from '@/hooks/useMediaQuery';
+import Logo from '@/assets/Logo.png';
+import ActionButton from '@/shared/ActionButton';
 import { SelectedPage } from '@/types/typings';
 
 type Props = {
@@ -10,6 +12,10 @@ type Props = {
 };
 
 const Header = ({ selectedPage, setSelectedPage }: Props) => {
+  const [isMenuToggled, setIsMenuToggled] = useState(false);
+
+  const isAboveMediumScreen = useMediaQuery('(min-width: 1060px)');
+
   return (
     <header>
       <nav className="fixed top-0 z-30 flex w-full items-center justify-between py-6">
@@ -19,7 +25,8 @@ const Header = ({ selectedPage, setSelectedPage }: Props) => {
             <img src={Logo} alt="Logo" />
 
             {/* RIGHT SIDE */}
-            <div className="flex w-full items-center justify-between">
+            {/* {isAboveMediumScreen ? ( */}
+            <div className="hidden w-full items-center justify-between md:flex">
               <div className="flex items-center justify-between gap-8 text-sm">
                 <Link
                   page="Home"
@@ -45,9 +52,23 @@ const Header = ({ selectedPage, setSelectedPage }: Props) => {
 
               <div className="flex items-center justify-between gap-8">
                 <p>Sign In</p>
-                <button>Become a Member</button>
+                <ActionButton setSelectedPage={setSelectedPage}>
+                  Become a Member
+                </ActionButton>
               </div>
             </div>
+            {/*) : (*/}
+            <button
+              className="block rounded-full bg-secondary-500 p-2 md:hidden"
+              onClick={() => setIsMenuToggled(!isMenuToggled)}
+            >
+              {isMenuToggled ? (
+                <XMarkIcon className="h-6 w-6 text-white" />
+              ) : (
+                <Bars3Icon className="h-6 w-6 text-white" />
+              )}
+            </button>
+            {/* )} */}
           </div>
         </div>
       </nav>
