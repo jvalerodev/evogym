@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/header';
+import SelectedPageState from '@/context/selectedPage/state';
+import useSelectedPage from '@/hooks/useSelectedPage';
 import { SelectedPage } from '@/types/typings';
 
 const App = () => {
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(
-    SelectedPage.Home
-  );
-
+  const { setSelectedPage } = useSelectedPage();
   const [isTopOfPage, setIsTopOfPage] = useState(true);
 
   useEffect(() => {
@@ -24,13 +23,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app bg-gray-20">
-      <Header
-        isTopOfPage={isTopOfPage}
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-      />
-    </div>
+    <SelectedPageState>
+      <div className="app bg-gray-20">
+        <Header isTopOfPage={isTopOfPage} />
+      </div>
+    </SelectedPageState>
   );
 };
 

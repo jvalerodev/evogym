@@ -1,12 +1,14 @@
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import useSelectedPage from '@/hooks/useSelectedPage';
 import { SelectedPage } from '@/types/typings';
 
 type Props = {
   children: React.ReactNode;
-  setSelectedPage: (value: SelectedPage) => void;
 };
 
-const ActionButton = ({ children, setSelectedPage }: Props) => {
+const ActionButton = ({ children }: Props) => {
+  const { setSelectedPage } = useSelectedPage();
+
   return (
     <AnchorLink
       href={`#${SelectedPage.ContactUs}`}
