@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import Header from '@/components/header';
-import SelectedPageState from '@/context/selectedPage/state';
 import useSelectedPage from '@/hooks/useSelectedPage';
+import Header from '@/components/header';
+import Home from '@/components/home';
+import Benefits from '@/components/benefits';
 import { SelectedPage } from '@/types/typings';
 
 const App = () => {
@@ -20,14 +21,16 @@ const App = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [setSelectedPage]);
 
   return (
-    <SelectedPageState>
-      <div className="app bg-gray-20">
-        <Header isTopOfPage={isTopOfPage} />
-      </div>
-    </SelectedPageState>
+    <div className="app bg-gray-20">
+      <Header isTopOfPage={isTopOfPage} />
+
+      <Home />
+
+      <Benefits />
+    </div>
   );
 };
 

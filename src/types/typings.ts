@@ -13,3 +13,9 @@ export type PageAction = {
   type: 'SET_SELECTED_PAGE';
   payload: SelectedPage;
 };
+
+export type Benefit = {
+  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+};
