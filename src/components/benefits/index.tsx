@@ -24,10 +24,10 @@ const Benefits = () => {
         onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
       >
         {/* HEADER */}
-        <Animation styles="text-center md:my-5 md:mx-auto md:w-3/5">
+        <Animation styles="md:my-5 md:w-3/5">
           <HText>More than just a gym.</HText>
 
-          <p className="my-5 text-start text-sm">
+          <p className="my-5 text-sm">
             We provide world class fitness equipment, trainers and classes to
             get you to your ultimate fitness goals with ease. We provide true
             care into each and every member.

@@ -3,6 +3,7 @@ import useSelectedPage from '@/hooks/useSelectedPage';
 import Header from '@/components/header';
 import Home from '@/components/home';
 import Benefits from '@/components/benefits';
+import OurClasses from '@/components/ourClasses';
 import { SelectedPage } from '@/types/typings';
 
 const App = () => {
@@ -24,12 +25,14 @@ const App = () => {
   }, [setSelectedPage]);
 
   return (
-    <div className="app bg-gray-20">
+    <div className="app overflow-x-hidden bg-gray-20">
       <Header isTopOfPage={isTopOfPage} />
 
       <Home />
 
       <Benefits />
+
+      <OurClasses />
     </div>
   );
 };
