@@ -4,6 +4,7 @@ import Header from '@/components/header';
 import Home from '@/components/home';
 import Benefits from '@/components/benefits';
 import OurClasses from '@/components/ourClasses';
+import ContactUs from '@/components/contactUs';
 import { SelectedPage } from '@/types/typings';
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
   }, [setSelectedPage]);
 
   return (
-    <div className="app overflow-x-hidden bg-gray-20">
+    <div className="app bg-gray-20">
       <Header isTopOfPage={isTopOfPage} />
 
       <Home />
@@ -33,6 +34,8 @@ const App = () => {
       <Benefits />
 
       <OurClasses />
+
+      <ContactUs />
     </div>
   );
 };

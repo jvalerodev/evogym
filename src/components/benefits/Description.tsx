@@ -39,7 +39,7 @@ const Description = () => {
       </Animation>
 
       <div className="relative mt-16">
-        <div className="before:absolute before:-bottom-20 before:-right-40 before:z-[-1] before:content-sparkles">
+        <div className="before:absolute before:-bottom-20 before:-right-28 before:z-[-1] before:content-sparkles">
           <ActionButton>Join Now</ActionButton>
         </div>
       </div>
