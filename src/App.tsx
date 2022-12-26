@@ -5,6 +5,7 @@ import Home from '@/components/home';
 import Benefits from '@/components/benefits';
 import OurClasses from '@/components/ourClasses';
 import ContactUs from '@/components/contactUs';
+import Footer from '@/components/footer';
 import { SelectedPage } from '@/types/typings';
 
 const App = () => {
@@ -28,14 +29,11 @@ const App = () => {
   return (
     <div className="app bg-gray-20">
       <Header isTopOfPage={isTopOfPage} />
-
       <Home />
-
       <Benefits />
-
       <OurClasses />
-
       <ContactUs />
+      <Footer />
     </div>
   );
 };
